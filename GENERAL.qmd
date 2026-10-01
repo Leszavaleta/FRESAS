@@ -180,5 +180,3 @@ Diseño de Bloques Completamente al Azar (DBCA), con cuatro repeticiones por tra
 Evaluar la aplicación localizada de bajas dosis de biochar combinadas con condensado acuoso de pirólisis sobre la eficiencia de fertilización, productividad y calidad de fresa.
 
 </div>
-
-
