@@ -1,0 +1,41 @@
+
+---
+format:
+  html:
+    toc: false
+    embed-resources: true
+---
+<div style="display:flex; justify-content:space-between; align-items:center;">
+<img src="inia.jpg" width="120">
+<img src="peru.png" width="120">
+</div>
+# Aplicación localizada de bajas dosis de biochar y condensado pirolítico para optimizar fertilización en fresa
+<p style="text-align:center;">
+<img src="fresa.jpg" width="350">
+</p>
+## Información general
+**Cultivo:** Fresa (*Fragaria × ananassa* Duchesne var. San Andreas)
+**Diseño experimental:** Diseño de Bloques Completamente al Azar (DBCA)
+**Tratamientos:** 7
+**Repeticiones:** 4
+**Unidades experimentales:** 28
+## Tratamientos evaluados
+| Código | Descripción |
+|---|---|
+| FSA1 | Control convencional |
+| FSA2 | NPK reducido al 80 % |
+| FSA3 | Tecnología completa |
+| FSA4 | CAP-A foliar |
+| FSA5 | Biochar localizado |
+| FSA6 | Tecnología integrada |
+| FSA7 | Biochar localizado alto 250 kg/ha |
+## Características de la parcela experimental
+**Tamaño de parcela:** 1 m × 1.80 m
+**Distanciamiento:** 0.30 m × 0.25 m
+**Plantas por parcela:** 24
+**Plantas útiles:** 6 centrales
+## Diseño del ensayo
+Diseño de Bloques Completamente al Azar (DBCA), con cuatro repeticiones por tratamiento y un total de 28 unidades experimentales.
+## Objetivo
+Evaluar la aplicación localizada de bajas dosis de biochar combinadas con condensado acuoso de pirólisis sobre la eficiencia de fertilización, productividad y calidad de fresa.
+
