@@ -180,3 +180,323 @@ Diseño de Bloques Completamente al Azar (DBCA), con cuatro repeticiones por tra
 Evaluar la aplicación localizada de bajas dosis de biochar combinadas con condensado acuoso de pirólisis sobre la eficiencia de fertilización, productividad y calidad de fresa.
 
 </div>
+
+
+install.packages("qrcodegen")
+install.packages("png")
+install.packages("jpeg")
+
+install.packages("qrcode")
+library(qrcode)
+ls("package:qrcode")
+
+# ============================================================
+# QR FRESA - GENERAL.html
+# LOGO CIRCULAR AL CENTRO DEL QR
+# ============================================================
+
+# -----------------------------
+# 1. INSTALAR PAQUETES
+# -----------------------------
+
+paquetes <- c("png", "jpeg")
+
+instalar <- paquetes[!(paquetes %in% installed.packages()[, "Package"])]
+
+if(length(instalar) > 0){
+  install.packages(instalar)
+}
+
+library(png)
+library(jpeg)
+
+
+# -----------------------------
+# 2. URL DEL QR
+# -----------------------------
+
+url <- "https://leszavaleta.github.io/FRESAS/GENERAL.html"
+
+
+# -----------------------------
+# 3. CODIFICAR URL
+# -----------------------------
+
+url_codificada <- utils::URLencode(
+  url,
+  reserved = TRUE
+)
+
+
+# -----------------------------
+# 4. GENERAR QR
+# -----------------------------
+
+qr_url <- paste0(
+  "https://quickchart.io/qr?",
+  "text=", url_codificada,
+  "&size=2500",
+  "&margin=4",
+  "&ecLevel=H",
+  "&dark=000000",
+  "&light=ffffff",
+  "&format=png"
+)
+
+
+# -----------------------------
+# 5. DESCARGAR QR
+# -----------------------------
+
+download.file(
+  qr_url,
+  "QR_FRESA_BASE.png",
+  mode = "wb"
+)
+
+
+# -----------------------------
+# 6. LEER QR Y LOGO
+# -----------------------------
+
+qr <- readPNG("QR_FRESA_BASE.png")
+
+logo <- readJPEG(
+  "logo.jpg",
+  native = FALSE
+)
+
+
+# -----------------------------
+# 7. CONVERTIR QR A RGB
+# -----------------------------
+
+if(length(dim(qr)) == 2){
+
+  qr_rgb <- array(
+    0,
+    dim = c(
+      dim(qr)[1],
+      dim(qr)[2],
+      3
+    )
+  )
+
+  qr_rgb[,,1] <- qr
+  qr_rgb[,,2] <- qr
+  qr_rgb[,,3] <- qr
+
+  qr <- qr_rgb
+
+} else {
+
+  if(dim(qr)[3] == 4){
+    qr <- qr[,,1:3]
+  }
+
+}
+
+
+# -----------------------------
+# 8. TAMAÑO DEL LOGO
+# -----------------------------
+# Un poco más grande: 22 %
+
+alto_qr <- dim(qr)[1]
+ancho_qr <- dim(qr)[2]
+
+tam_logo <- round(
+  alto_qr * 0.22
+)
+
+
+# -----------------------------
+# 9. HACER EL LOGO CUADRADO
+# -----------------------------
+
+alto_original <- dim(logo)[1]
+ancho_original <- dim(logo)[2]
+
+lado_original <- max(
+  alto_original,
+  ancho_original
+)
+
+logo_cuadrado <- array(
+  1,
+  dim = c(
+    lado_original,
+    lado_original,
+    3
+  )
+)
+
+fila_inicio <- floor(
+  (lado_original - alto_original) / 2
+) + 1
+
+columna_inicio <- floor(
+  (lado_original - ancho_original) / 2
+) + 1
+
+logo_cuadrado[
+  fila_inicio:(fila_inicio + alto_original - 1),
+  columna_inicio:(columna_inicio + ancho_original - 1),
+  1:3
+] <- logo
+
+
+# -----------------------------
+# 10. REDIMENSIONAR EL LOGO
+# -----------------------------
+
+lado_original <- dim(logo_cuadrado)[1]
+
+factor <- tam_logo / lado_original
+
+nuevo_lado <- round(
+  lado_original * factor
+)
+
+filas <- round(
+  seq(
+    1,
+    lado_original,
+    length.out = nuevo_lado
+  )
+)
+
+columnas <- round(
+  seq(
+    1,
+    lado_original,
+    length.out = nuevo_lado
+  )
+)
+
+logo_circular <- logo_cuadrado[
+  filas,
+  columnas,
+  ,
+  drop = FALSE
+]
+
+
+# -----------------------------
+# 11. CREAR FORMA CIRCULAR
+# -----------------------------
+
+lado <- dim(logo_circular)[1]
+
+centro <- (lado + 1) / 2
+
+radio <- lado / 2
+
+yy <- matrix(
+  rep(
+    1:lado,
+    each = lado
+  ),
+  nrow = lado
+)
+
+xx <- matrix(
+  rep(
+    1:lado,
+    times = lado
+  ),
+  nrow = lado
+)
+
+distancia <- sqrt(
+  (xx - centro)^2 +
+  (yy - centro)^2
+)
+
+mascara <- distancia <= radio
+
+
+# -----------------------------
+# 12. COLOCAR EL LOGO
+#     EN EL CENTRO DEL QR
+# -----------------------------
+
+inicio_fila <- floor(
+  (alto_qr - lado) / 2
+) + 1
+
+fin_fila <- inicio_fila +
+  lado - 1
+
+inicio_columna <- floor(
+  (ancho_qr - lado) / 2
+) + 1
+
+fin_columna <- inicio_columna +
+  lado - 1
+
+
+# -----------------------------
+# 13. PEGAR SOLO LA PARTE
+#     CIRCULAR DEL LOGO
+# -----------------------------
+
+for(i in 1:lado){
+
+  for(j in 1:lado){
+
+    if(mascara[i,j]){
+
+      qr[
+        inicio_fila + i - 1,
+        inicio_columna + j - 1,
+        1
+      ] <- logo_circular[i,j,1]
+
+      qr[
+        inicio_fila + i - 1,
+        inicio_columna + j - 1,
+        2
+      ] <- logo_circular[i,j,2]
+
+      qr[
+        inicio_fila + i - 1,
+        inicio_columna + j - 1,
+        3
+      ] <- logo_circular[i,j,3]
+
+    }
+
+  }
+
+}
+
+
+# -----------------------------
+# 14. GUARDAR QR FINAL
+# -----------------------------
+
+writePNG(
+  qr,
+  "QR_FRESA_GENERAL_LOGO_CIRCULAR.png"
+)
+
+
+# -----------------------------
+# 15. MENSAJE FINAL
+# -----------------------------
+
+cat("\n")
+cat("============================================\n")
+cat(" QR GENERADO CORRECTAMENTE\n")
+cat("============================================\n")
+cat("Archivo: QR_FRESA_GENERAL_LOGO_CIRCULAR.png\n")
+cat("URL: ", url, "\n")
+cat("Resolución: 2500 x 2500 px\n")
+cat("Corrección: H\n")
+cat("Logo: logo.jpg\n")
+cat("Forma: circular\n")
+cat("Tamaño: 22 %\n")
+cat("Fondo del logo: CONSERVADO\n")
+cat("============================================\n")
+

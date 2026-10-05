@@ -1,41 +1,161 @@
-
 ---
 format:
   html:
     toc: false
     embed-resources: true
 ---
-<div style="display:flex; justify-content:space-between; align-items:center;">
-<img src="inia.jpg" width="120">
-<img src="peru.png" width="120">
-</div>
-# Aplicación localizada de bajas dosis de biochar y condensado pirolítico para optimizar fertilización en fresa
-<p style="text-align:center;">
-<img src="fresa.jpg" width="350">
-</p>
-## Información general
-**Cultivo:** Fresa (*Fragaria × ananassa* Duchesne var. San Andreas)
-**Diseño experimental:** Diseño de Bloques Completamente al Azar (DBCA)
-**Tratamientos:** 7
-**Repeticiones:** 4
-**Unidades experimentales:** 28
-## Tratamientos evaluados
-| Código | Descripción |
-|---|---|
-| FSA1 | Control convencional |
-| FSA2 | NPK reducido al 80 % |
-| FSA3 | Tecnología completa |
-| FSA4 | CAP-A foliar |
-| FSA5 | Biochar localizado |
-| FSA6 | Tecnología integrada |
-| FSA7 | Biochar localizado alto 250 kg/ha |
-## Características de la parcela experimental
-**Tamaño de parcela:** 1 m × 1.80 m
-**Distanciamiento:** 0.30 m × 0.25 m
-**Plantas por parcela:** 24
-**Plantas útiles:** 6 centrales
-## Diseño del ensayo
-Diseño de Bloques Completamente al Azar (DBCA), con cuatro repeticiones por tratamiento y un total de 28 unidades experimentales.
-## Objetivo
-Evaluar la aplicación localizada de bajas dosis de biochar combinadas con condensado acuoso de pirólisis sobre la eficiencia de fertilización, productividad y calidad de fresa.
 
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 15px;
+  background: white;
+}
+
+.logos {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.peru {
+  width: 55px;
+  height: 55px;
+  object-fit: contain;
+}
+
+.inia {
+  width: 70px;
+  height: 55px;
+  object-fit: contain;
+}
+
+.titulo {
+  text-align: center;
+  color: #7A1F1F;
+  font-size: 25px;
+  font-weight: bold;
+  line-height: 1.15;
+  margin: 5px 30px 4px 30px;
+}
+
+.subtitulo {
+  text-align: center;
+  color: #0B7D4F;
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+
+.codigo {
+  background: #0B7D4F;
+  color: white;
+  width: 100px;
+  margin: 0 auto 12px auto;
+  padding: 7px;
+  border-radius: 7px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.datos {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+  max-width: 850px;
+  margin: auto;
+}
+
+.dato {
+  border: 1px solid #0B7D4F;
+  border-radius: 7px;
+  padding: 8px 5px;
+  text-align: center;
+  background: #F4FAF6;
+}
+
+.dato .label {
+  color: #0B7D4F;
+  font-size: 11px;
+  font-weight: bold;
+  margin-bottom: 3px;
+}
+
+.dato .valor {
+  color: #333;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.funcion {
+  grid-column: 1 / 4;
+  border: 1px solid #7A1F1F;
+  border-radius: 7px;
+  padding: 9px;
+  text-align: center;
+  background: #FFF8F8;
+}
+
+.funcion .label {
+  color: #7A1F1F;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+.funcion .valor {
+  color: #333;
+  font-size: 15px;
+  font-weight: bold;
+}
+</style>
+
+<div class="logos">
+  <img src="peru.png" class="peru">
+  <img src="inia.jpg" class="inia">
+</div>
+
+<div class="titulo">
+Aplicación localizada de bajas dosis de biochar y condensado pirolítico para optimizar fertilización en fresa
+</div>
+
+<div class="subtitulo">
+Fresa (<i>Fragaria × ananassa</i> Duchesne var. San Andreas) · <b>FSA</b> = Fresa San Andreas
+</div>
+
+<div class="codigo">FSA1</div>
+
+<div class="datos">
+
+  <div class="dato">
+    <div class="label">DESCRIPCIÓN</div>
+    <div class="valor">Control convencional</div>
+  </div>
+
+  <div class="dato">
+    <div class="label">TRATAMIENTO</div>
+    <div class="valor">T1</div>
+  </div>
+
+  <div class="dato">
+    <div class="label">NPK</div>
+    <div class="valor">100 %</div>
+  </div>
+
+  <div class="dato">
+    <div class="label">BIOCHAR LOCALIZADO</div>
+    <div class="valor">0</div>
+  </div>
+
+  <div class="dato">
+    <div class="label">CAP-A FOLIAR</div>
+    <div class="valor">0</div>
+  </div>
+
+  <div class="funcion">
+    <div class="label">FUNCIÓN EXPERIMENTAL</div>
+    <div class="valor">Control agronómico convencional</div>
+  </div>
+
+</div>
