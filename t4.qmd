@@ -1,0 +1,35 @@
+---
+format: html
+toc: false
+embed-resources: true
+---
+
+<div style="display:flex; align-items:center; justify-content:space-between; gap:20px;">
+
+<div style="flex:1;">
+
+# Aplicación localizada de bajas dosis de biochar y condensado pirolítico para optimizar fertilización en fresa
+
+*Fragaria × ananassa* Duchesne var. San Andrea
+
+</div>
+
+<div style="width:130px; text-align:center;">
+
+<img src="fresa.jpg" width="120">
+
+</div>
+
+</div>
+
+
+| **Código** | **Descripción** |
+|:---:|:---|
+| **FSA4** | **CAP-A foliar** |
+
+
+| **Trat.** | **NPK** | **Biochar localizado** | **CAP-A foliar** | **Función experimental** |
+|:---:|:---:|:---:|:---:|:---|
+| **T4** | **80%** | **0** | **0.20%** | **Efecto individual CAP-A** |
+
+
